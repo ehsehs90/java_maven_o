@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--mybatis_config.xml-->
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+    	<typeAlias type="spring.biz.user.vo.UserVO" alias="uservo"/>
+        <!--user_mapper.xml 에서 사용-->
+    </typeAliases>
+    
+    <mappers>
+    	<mapper resource="mapper/user_mapper.xml"/>
+        <!--user_mapper.xml 파일을 만들어 sql명령어를 처리-->
+    </mappers>
+</configuration>

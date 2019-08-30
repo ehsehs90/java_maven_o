@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="user">
+    <select id="login" parameterType="uservo" resultType="uservo">
+        <!--uservo는 mybatis_config.xml에서 정의되어 있음-->
+    	select * from userinfo where id=#{id} and pw=#{pw}
+        <!--uservo의 멤버변수와 이름이 같으면 자동으로 get메소드가 파싱-->
+    </select>
+	<select id="getuser" resultType="uservo">
+    	select * from userinfo where id=#{id}
+        <!--파싱할 변수가 하나일 경우에는 parameterType을 지정하지 않아도 됨-->
+    </select>
+    <insert id="adduser" parameterType="uservo">
+    	insert into userinfo(id, pw) values(#{id}, #{pw})
+    </insert>
+    <select id="list" resultType="uservo">
+    	select * from userinfo
+    </select>
+    <update id="update" parameterType="uservo">
+    	update userinfo set id=#{id}, pw=#{pw}
+    </update>
+</mapper>
